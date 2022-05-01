@@ -46,6 +46,12 @@ class Login extends Component<Props, State> {
             window.location.href = '/dan'
           })
         }
+        else {
+          return Swal.fire({
+            title: 'Error',
+            text: 'Please try again later'
+          })
+        }
       })
   }
   handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
