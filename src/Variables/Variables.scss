@@ -1,0 +1,24 @@
+$blackColor: rgb(24, 24, 24);
+$whiteColor: rgb(255, 255, 255);
+$redColor: rgb(181, 29, 29);
+$titleFont: Arial,
+Helvetica,
+sans-serif;
+$bodyFont: "Times new Roman",
+Times,
+serif;
+
+@mixin buttonStyle($color, $fontSize, $width) {
+  width: $width;
+  height: 40px;
+  background-color: $color;
+  border: 0;
+  border-radius: 8px;
+  color: $whiteColor;
+  font-size: $fontSize;
+
+  &:hover {
+    background-color: rgb(26, 152, 174);
+    cursor: pointer;
+  }
+}
