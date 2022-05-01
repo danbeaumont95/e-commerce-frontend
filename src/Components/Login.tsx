@@ -62,10 +62,11 @@ class Login extends Component<Props, State> {
     e.preventDefault()
     this.setState({password: e.target.value})
   }
+
   render() {
     return (
       <div className='allContent'>
-        <h1 style={{color: 'rgb(84, 105, 212)'}}>E-Commerce App</h1>
+        
 
           <form action="" className='form' onSubmit={this.handleSubmit}>
             <h1 style={{color: 'rgb(84, 105, 212)'}}>Log in</h1>
@@ -81,11 +82,6 @@ class Login extends Component<Props, State> {
           </div>
 
           <button className='loginButton'>Log in</button>
-          <div className='signUpOption'>
-
-          <h4>Don't have an account?</h4>
-          <h4 style={{ marginLeft: '.3rem', color: 'blue', cursor: 'pointer' }}>Sign up</h4>
-          </div>
           </form>
       </div>
     )
