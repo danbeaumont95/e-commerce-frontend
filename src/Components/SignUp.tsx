@@ -93,7 +93,7 @@ export default class SignUp extends Component<Props, State> {
     return (
       <div className='allContent'>
         <form action="" className='signUpForm' onSubmit={this.handleSubmit}>
-            <h1 style={{color: 'rgb(84, 105, 212)'}}>Log in</h1>
+            <h1 style={{color: 'rgb(84, 105, 212)'}}>Sign Up</h1>
           <div className='firstNameSection'>
             
           <label htmlFor="firstName">First Name</label>
@@ -129,11 +129,6 @@ export default class SignUp extends Component<Props, State> {
           
 
           <button className='loginButton'>Log in</button>
-          <div className='signUpOption'>
-
-          <h4>Don't have an account?</h4>
-          <h4 style={{ marginLeft: '.3rem', color: 'blue', cursor: 'pointer' }}>Sign up</h4>
-          </div>
           </form>
       </div>
     )
