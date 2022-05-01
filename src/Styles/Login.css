@@ -1,0 +1,89 @@
+.allContent {
+  color: #181818;
+  height: 100vh;
+}
+
+.allContent .loginForm {
+  border: 2px solid red;
+  display: block;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.allContent .input {
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  border: 2px solid #bbbbd3;
+  border-radius: 4px;
+  width: 60%;
+  height: 40px;
+  font-size: large;
+}
+
+.allContent .form {
+  display: inline-block;
+  height: 60%;
+  width: 30%;
+  border-radius: 4px;
+  -webkit-box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+          box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+.allContent .emailSection {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.allContent .passwordSection {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.allContent button {
+  width: 150px;
+  height: 40px;
+  background-color: #5469d4;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+}
+
+.allContent button:hover {
+  background-color: #1a98ae;
+  cursor: pointer;
+}
+
+.allContent .loginButton {
+  margin-top: 20px;
+}
+
+.allContent .signUpOption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=Login.css.map */
