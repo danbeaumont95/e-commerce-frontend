@@ -43,7 +43,7 @@ class Login extends Component<Props, State> {
             text: 'You are now logged in! You will be redirected to the homepage'
           })
           .then(() => {
-            window.location.href = '/dan'
+            window.location.href = '/navbar'
           })
         }
         else {
