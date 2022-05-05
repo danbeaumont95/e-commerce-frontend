@@ -73,15 +73,15 @@ class Login extends Component<Props, State> {
           <div className='emailSection'>
             
           <label htmlFor="email">Email</label>
-          <input type="text" className='input' value={this.state.email} onChange={this.handleChangeEmail}/>
+          <input type="text" className='input' value={this.state.email} onChange={this.handleChangeEmail} id="loginEmailInput"/>
           </div>
 
           <div className='passwordSection'>
           <label htmlFor="password" >Password</label>
-          <input type="password" className='input' onChange={this.handleChangePassword}/>
+          <input type="password" className='input' onChange={this.handleChangePassword} id="loginPasswordInput"/>
           </div>
 
-          <button className='loginButton'>Log in</button>
+          <button className='loginButton' id="loginNowButton">Log in</button>
           </form>
       </div>
     )

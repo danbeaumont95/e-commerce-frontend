@@ -31,7 +31,7 @@ class Main extends Component<Props, State> {
     return (
       <div>
         <h1 style={{color: 'rgb(84, 105, 212)'}}>E-Commerce App</h1>
-        <button onClick={this.handleLoginClick} className="loginButton">Login</button>
+        <button onClick={this.handleLoginClick} className="loginButton" id='loginButton'>Login</button>
         <button onClick={this.handleSignupClick} className="signUpButton">Sign Up</button>
         {showLogin ? (
           <div>
