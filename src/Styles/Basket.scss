@@ -1,0 +1,32 @@
+@import '../Variables/Variables.scss';
+
+.container {
+  background-color: rgb(223, 232, 232);
+  border-bottom: 1px solid grey;
+
+  .item {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .image {}
+
+  .itemProperty {
+
+    text-align: left;
+  }
+
+  .itemPropertyButton {
+    float: left;
+    background-color: red;
+    height: 25px;
+    width: 60px;
+    font-size: small;
+
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+
+}

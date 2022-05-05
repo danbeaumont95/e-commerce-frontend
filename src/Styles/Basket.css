@@ -1,0 +1,29 @@
+.container {
+  background-color: #dfe8e8;
+  border-bottom: 1px solid grey;
+}
+
+.container .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.container .itemProperty {
+  text-align: left;
+}
+
+.container .itemPropertyButton {
+  float: left;
+  background-color: red;
+  height: 25px;
+  width: 60px;
+  font-size: small;
+}
+
+.container .itemPropertyButton:hover {
+  background-color: black;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Basket.css.map */
