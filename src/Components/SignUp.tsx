@@ -128,7 +128,7 @@ export default class SignUp extends Component<Props, State> {
           </div>
           
 
-          <button className='loginButton'>Log in</button>
+          <button className='loginsButton'>Log in</button>
           </form>
       </div>
     )

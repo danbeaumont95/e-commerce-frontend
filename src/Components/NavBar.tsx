@@ -31,7 +31,7 @@ class NavBar extends Component<Props, State> {
     
     BasketService.getAmountOfItemsInBasket(localStorages)
     .then((res) => {
-      const {data} = res
+      const {data} = res;
       
       if (data.error) {
         return Swal.fire({
@@ -43,12 +43,9 @@ class NavBar extends Component<Props, State> {
         })
       }
       else {
-
         this.props.updateAmountOfItemsInBasket(data.amount)
-
         this.setState({amountOfItemsInBasket: data.amount, isLoading: false})
       }
-      
     })
   }
 
