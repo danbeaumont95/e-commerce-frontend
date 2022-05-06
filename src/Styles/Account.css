@@ -1,0 +1,28 @@
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  grid-auto-flow: column;
+}
+
+.grid .text {
+  padding: 10px;
+}
+
+.grid .card {
+  width: 250px;
+  -webkit-box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.grid .card:hover {
+  background-color: #e0edf0;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Account.css.map */

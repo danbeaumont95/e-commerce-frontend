@@ -8,6 +8,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Basket from './Components/Basket';
+import Account from './Components/Account';
 
 function App(props: any) {
   return (
@@ -17,6 +18,7 @@ function App(props: any) {
         <Route path="/" element={<Main />} />
         <Route path="/navbar" element={<NavBar />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/account" element={<Account />} />
         </Routes>
       </Router>
     </div>
