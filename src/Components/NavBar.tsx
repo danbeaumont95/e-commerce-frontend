@@ -67,7 +67,7 @@ class NavBar extends Component<Props, State> {
         <h3 className='title'>Dans e-commerce app</h3>
         <ul className='nav-links'>
 
-        <a href="/profile" className='nav-item'>Profile</a>
+        <a href="/account" className='nav-item'>Account</a>
         <a href="/basket"className='nav-item'>
           <ShoppingCart />
           {this.state.amountOfItemsInBasket}
