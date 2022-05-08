@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Basket from './Components/Basket';
 import Account from './Components/Account';
+import Security from './Components/Security';
 
 function App(props: any) {
   return (
@@ -19,6 +20,7 @@ function App(props: any) {
         <Route path="/navbar" element={<NavBar />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/account/security" element={<Security />} />
         </Routes>
       </Router>
     </div>

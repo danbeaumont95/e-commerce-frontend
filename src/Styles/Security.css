@@ -1,0 +1,21 @@
+.allSecurityContent {
+  height: 100vh;
+}
+
+.allSecurityContent .updateSecurityDetailsContainer {
+  border: 2px solid #e7e7e7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.allSecurityContent .securityDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 18px;
+  text-align: left;
+}
+/*# sourceMappingURL=Security.css.map */

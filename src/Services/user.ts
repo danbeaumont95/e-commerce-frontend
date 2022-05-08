@@ -26,10 +26,27 @@ const getMyDetails = async (token: string) => {
   const refreshToken: any = localStorage.getItem('refreshToken');
 
   const checkIfTokenValid = await TokenService.refreshToken(token, refreshToken);
+
+  if (checkIfTokenValid.data?.access_token) {
+    token = checkIfTokenValid.data?.access_token
+  }
+  const res = await axios.get(`http://127.0.0.1:8000/user/me/details`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    }
+  })
+
+  return res
+}
+
+const updateMyDetails = async (token: string, details: object) => {
+  const refreshToken: any = localStorage.getItem('refreshToken');
+
+  const checkIfTokenValid = await TokenService.refreshToken(token, refreshToken);
   if (checkIfTokenValid.data.access_token) {
     token = checkIfTokenValid.data?.access_token
   }
-  const res = await axios.get(`${url}/user/me/details`, {
+  const res = await axios.put(`${url}/user/me/details`, details, {
     headers: {
       authorization: `Bearer ${token}`,
     }
@@ -40,7 +57,8 @@ const getMyDetails = async (token: string) => {
 const UserService = {
   login,
   signUp,
-  getMyDetails
+  getMyDetails,
+  updateMyDetails
 }
 
 export default UserService
