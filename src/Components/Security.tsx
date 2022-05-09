@@ -32,6 +32,9 @@ class Security extends Component<Props, State> {
         },
     }
     this.nameSwal = this.nameSwal.bind(this)
+    this.emailSwal = this.emailSwal.bind(this)
+    this.phoneNumberSwal = this.phoneNumberSwal.bind(this)
+    this.passwordSwal = this.passwordSwal.bind(this)
   }
 
   componentDidMount() {
@@ -92,6 +95,132 @@ nameSwal() {
   })
 }
 
+emailSwal() {
+  Swal.fire({
+    title: 'Name Change Form',
+    html: `<input type="text" id="email" class="swal2-input" placeholder="Email">`,
+    confirmButtonText: 'Sign in',
+    focusConfirm: false,
+    preConfirm: () => {
+      const email = (document.querySelector('#email') as HTMLInputElement).value;
+
+      if (!email) {
+        Swal.showValidationMessage(`Please enter email`)
+      }
+      return { email }
+    }
+  }).then((result) => {
+    if (result.isDismissed) {
+     return null
+    }
+    const {value} = result;
+
+    const email = value?.email;
+
+    const detailsToUpdate = {email}
+
+    const accessToken: any = localStorage.getItem('accessToken');
+
+    UserService.updateMyDetails(accessToken,detailsToUpdate)
+      .then((res) => {
+        const {data}: {data: UserState} = res;
+        if (data.firstName) {
+          this.setState({user: data})
+        }
+      })
+      .then(() => {
+        return Swal.fire({
+          title: 'Success!',
+          text: 'Details updated'
+        })
+      })
+  })
+}
+
+phoneNumberSwal() {
+  Swal.fire({
+    title: 'Name Change Form',
+    html: `<input type="text" id="mobileNumber" class="swal2-input" placeholder="Mobile Number">`,
+    confirmButtonText: 'Sign in',
+    focusConfirm: false,
+    preConfirm: () => {
+      const mobileNumber = (document.querySelector('#mobileNumber') as HTMLInputElement).value;
+
+      if (!mobileNumber) {
+        Swal.showValidationMessage(`Please enter mobile number`)
+      }
+      return { mobileNumber }
+    }
+  }).then((result) => {
+    if (result.isDismissed) {
+     return null
+    }
+    const {value} = result;
+
+    const mobileNumber = value?.mobileNumber;
+
+    const detailsToUpdate = {mobileNumber}
+
+    const accessToken: any = localStorage.getItem('accessToken');
+
+    UserService.updateMyDetails(accessToken,detailsToUpdate)
+      .then((res) => {
+        const {data}: {data: UserState} = res;
+        if (data.firstName) {
+          this.setState({user: data})
+        }
+      })
+      .then(() => {
+        return Swal.fire({
+          title: 'Success!',
+          text: 'Details updated'
+        })
+      })
+  })
+}
+
+passwordSwal() {
+  Swal.fire({
+    title: 'Name Change Form',
+    html: `<input type="password" id="password" class="swal2-input" placeholder="Password">`,
+    confirmButtonText: 'Sign in',
+    focusConfirm: false,
+    preConfirm: () => {
+      const password = (document.querySelector('#password') as HTMLInputElement).value;
+
+      if (!password) {
+        Swal.showValidationMessage(`Please enter a password`)
+      }
+      return { password }
+    }
+  }).then((result) => {
+    if (result.isDismissed) {
+     return null
+    }
+    const {value} = result;
+
+    const password = value?.password;
+
+    const detailsToUpdate = {password}
+
+    const accessToken: any = localStorage.getItem('accessToken');
+
+    UserService.updateMyDetails(accessToken,detailsToUpdate)
+      .then((res) => {
+        const {data}: {data: UserState} = res;
+        if (data.firstName) {
+          this.setState({user: data})
+        }
+      })
+      .then(() => {
+        return Swal.fire({
+          title: 'Success!',
+          text: 'Details updated'
+        })
+      })
+  })
+}
+
   render() {
     return (
       <div className='allSecurityContent'>
@@ -118,7 +247,7 @@ nameSwal() {
                   <p style={{marginTop: 0}}>Email</p>
                   <p>{this.state.user.email}</p>
                   </div>
-                  <button className='editSecurityDetailsButton'>Edit</button>
+                  <button className='editSecurityDetailsButton' onClick={this.emailSwal}>Edit</button>
                 </div>
               </span>
             </li>
@@ -130,7 +259,7 @@ nameSwal() {
                   <p style={{marginTop: 0}}>Mobile phone number</p>
                   <p>{this.state.user.mobileNumber}</p>
                   </div>
-                  <button className='editSecurityDetailsButton'>Edit</button>
+                  <button className='editSecurityDetailsButton' onClick={this.phoneNumberSwal}>Edit</button>
                 </div>
               </span>
             </li>
@@ -142,7 +271,7 @@ nameSwal() {
                   <p style={{marginTop: 0}}>Password</p>
                   <p>{this.changeToPassword(this.state.user.password)}</p>
                   </div>
-                  <button className='editSecurityDetailsButton'>Edit</button>
+                  <button className='editSecurityDetailsButton' onClick={this.passwordSwal}>Edit</button>
                 </div>
               </span>
             </li>
