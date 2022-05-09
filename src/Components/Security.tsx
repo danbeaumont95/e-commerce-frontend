@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../Styles/Security.css';
 import UserService from '../Services/user';
+import Swal from 'sweetalert2';
+
 type UserState = {
   _id: string,
   firstName: string,
@@ -12,7 +14,7 @@ type UserState = {
 }
 type Props = {}
 type State = {
- user: UserState
+ user: UserState,
 }
 
 class Security extends Component<Props, State> {
@@ -27,9 +29,9 @@ class Security extends Component<Props, State> {
         password: '',
         username: '',
         mobileNumber: ''
-        }
-
+        },
     }
+    this.nameSwal = this.nameSwal.bind(this)
   }
 
   componentDidMount() {
@@ -41,6 +43,54 @@ class Security extends Component<Props, State> {
         this.setState({user: data})
       })
   }
+
+changeToPassword(password: string) {
+  return password.split('').map(() => '*').join('')
+}
+
+nameSwal() {
+  Swal.fire({
+    title: 'Name Change Form',
+    html: `<input type="text" id="firstName" class="swal2-input" placeholder="First Name">
+    <input type="text" id="lastName" class="swal2-input" placeholder="Last Name">`,
+    confirmButtonText: 'Sign in',
+    focusConfirm: false,
+    preConfirm: () => {
+      const firstName = (document.querySelector('#firstName') as HTMLInputElement).value;
+
+      const lastName = (document.querySelector('#lastName') as HTMLInputElement).value;
+      if (!firstName || !lastName) {
+        Swal.showValidationMessage(`Please enter first name and last name`)
+      }
+      return { firstName, lastName }
+    }
+  }).then((result) => {
+    if (result.isDismissed) {
+     return null
+    }
+    const {value} = result;
+
+    const firstName = value?.firstName;
+    const lastName = value?.lastName
+    const detailsToUpdate = {firstName, lastName}
+
+    const accessToken: any = localStorage.getItem('accessToken');
+
+    UserService.updateMyDetails(accessToken,detailsToUpdate)
+      .then((res) => {
+        const {data}: {data: UserState} = res;
+        if (data.firstName) {
+          this.setState({user: data})
+        }
+      })
+      .then(() => {
+        return Swal.fire({
+          title: 'Success!',
+          text: 'Details updated'
+        })
+      })
+  })
+}
 
   render() {
     return (
@@ -56,7 +106,7 @@ class Security extends Component<Props, State> {
                   <p style={{marginTop: 0}}>Name</p>
                   <p>{this.state.user.firstName} {this.state.user.lastName}</p>
                   </div>
-                  <button className='editSecurityDetailsButton'>Edit</button>
+                  <button className='editSecurityDetailsButton' onClick={this.nameSwal}>Edit</button>
                 </div>
               </span>
             </li>
@@ -90,7 +140,7 @@ class Security extends Component<Props, State> {
                   <div>
 
                   <p style={{marginTop: 0}}>Password</p>
-                  <p>{this.state.user.password}</p>
+                  <p>{this.changeToPassword(this.state.user.password)}</p>
                   </div>
                   <button className='editSecurityDetailsButton'>Edit</button>
                 </div>
