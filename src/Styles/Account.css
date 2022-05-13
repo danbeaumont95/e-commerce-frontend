@@ -25,4 +25,9 @@
   background-color: #e0edf0;
   cursor: pointer;
 }
+
+.swalButton {
+  height: 60px;
+  width: 160px;
+}
 /*# sourceMappingURL=Account.css.map */
