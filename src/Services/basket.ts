@@ -50,10 +50,26 @@ const deleteItemFromBasket = async (token: string, id: string) => {
   return res
 }
 
+const addItemToBasket = async (token: string, id: string) => {
+  const refreshToken: any = localStorage.getItem('refreshToken');
+
+  const checkIfTokenValid = await TokenService.refreshToken(token, refreshToken);
+  if (checkIfTokenValid.data?.access_token) {
+    token = checkIfTokenValid.data.access_token
+  }
+  const res = await axios.post(`${url}/basket/addToBasket/${id}`, {}, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    }
+  });
+  return res
+}
+
 const BasketService = {
   getAmountOfItemsInBasket,
   getMyBasket,
-  deleteItemFromBasket
+  deleteItemFromBasket,
+  addItemToBasket
 }
 
 export default BasketService
