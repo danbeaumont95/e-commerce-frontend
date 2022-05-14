@@ -1,3 +1,5 @@
+@import '../Variables/Variables.scss';
+
 .items {
   display: grid;
   justify-content: center;
@@ -5,6 +7,7 @@
 
   .item {
     width: 250px;
+    height: 95%;
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     margin: 20px;
     border-radius: 10px;
@@ -17,5 +20,9 @@
 
   .itemImage {
     margin-top: 20px;
+  }
+
+  button {
+    @include buttonStyle(rgb(84, 105, 212), 15px, 100px)
   }
 }
