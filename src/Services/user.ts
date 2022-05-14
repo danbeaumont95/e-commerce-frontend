@@ -54,11 +54,17 @@ const updateMyDetails = async (token: string, details: object) => {
   return res
 }
 
+const getUserById = async (id: string) => {
+  const res = await axios.get(`${url}/user/${id}`)
+  return res
+}
+
 const UserService = {
   login,
   signUp,
   getMyDetails,
-  updateMyDetails
+  updateMyDetails,
+  getUserById
 }
 
 export default UserService
